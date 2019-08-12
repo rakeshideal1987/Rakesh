@@ -12,6 +12,7 @@ class Exam {
     	Set<Integer> setOK = new HashSet<Integer>();
     	for(int i=0; i<T.length; i++){
     		if(R[i].equalsIgnoreCase("OK")){
+		//Scope to refector this block of code and can be move to a private method to resure
         			for (int f=0; f < T[i].length(); f++) {
     	    			char c = T[i].charAt(f);
     				    if (Character.isDigit(c)){
