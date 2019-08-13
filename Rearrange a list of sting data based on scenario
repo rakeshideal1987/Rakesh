@@ -1,0 +1,71 @@
+package com.java;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class Exam {
+    public String solution(String S) throws ParseException {
+    	String[] splis = S.split("\n");
+    	StringBuilder sb = new StringBuilder();
+    	int Warsaw = 0;
+    	int London = 0;
+    	int Paris = 0;
+    	for(int i =0;i<splis.length ; i++){
+    		String[] splisC = splis[i].split(",");
+    		String j = splisC[0].substring(splisC[0].indexOf("."),splisC[0].length());
+    		String k = splisC[1];
+    		String L = splisC[2]; // To assign the number I should take date in consideration
+    		//Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(L);
+    		sb.append(k);
+    		if(k.trim().toLowerCase().equalsIgnoreCase("warsaw")){
+    			Warsaw+=1;
+    			if(Warsaw <10){
+    				sb.append(0);
+    			}
+        		sb.append(Warsaw);
+        		sb.append(j);
+        		sb.append("\n");
+    		}else if(k.trim().toLowerCase().equalsIgnoreCase("london")){
+    			London+=1;
+        		sb.append(London);
+        		sb.append(j);
+        		sb.append("\n");
+    		}else{
+    			Paris+=1;
+        		sb.append(Paris);
+        		sb.append(j);
+        		sb.append("\n");
+    		}
+    	}
+    	
+    	return sb.toString();
+    	
+     }
+
+	public static void main(String are[]) throws ParseException{
+    	
+    	//int a = 53;
+    	//int b = 1953786;
+    	//int a = 78;
+    	//int b = 195378678;
+    	String s1 = "photo.jpg, Warsaw, 2013-09-05 14:08:15 \n"+
+"john.png, London, 2015-06-20 15:13:22 \n"+
+"myFriends.png, Warsaw, 2013-09-05 14:07:13 \n"+
+"Eiffel.jpg, Paris, 2015-07-23 08:03:02 \n"+
+"pisatower.jpg, Paris, 2015-07-22 23:59:59 \n"+
+"BOB.jpg, London, 2015-08-05 00:02:03 \n"+
+"notredame.png, Paris, 2015-09-01 12:00:00 \n"+
+"me.jpg, Warsaw, 2013-09-06 15:40:22 \n"+
+"a.png, Warsaw, 2016-02-13 13:33:50 \n"+
+"b.jpg, Warsaw, 2016-01-02 15:12:22 \n"+
+"c.jpg, Warsaw, 2016-01-02 14:34:30 \n"+
+"d.jpg, Warsaw, 2016-01-02 15:15:01 \n"+
+"e.png, Warsaw, 2016-01-02 09:49:09 \n"+
+"f.png, Warsaw, 2016-01-02 10:55:32 \n"+
+"g.jpg, Warsaw, 2016-02-29 22:13:11 \n";
+    	Exam e = new Exam();
+    	String p = e.solution(s1);
+    	System.out.println("p:"+p);
+    }
+}
