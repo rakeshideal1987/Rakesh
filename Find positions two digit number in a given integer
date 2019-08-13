@@ -1,0 +1,38 @@
+class Exam {
+		public int solution(int A, int B) {
+    	int fa = 0;
+    	int sa = 0;
+    	StringBuilder position = new StringBuilder();
+    	String strNum = "" + A;
+    	char[] c = strNum.toCharArray();
+    	fa = Character.getNumericValue(c[0]);
+    	sa = Character.getNumericValue(c[1]);
+    	String strNumB = "" + B;
+    	int strLength = strNumB.length();
+    		for (int i = 0; i < strLength; ++i) {
+        		if(Character.getNumericValue(strNumB.charAt(i)) == fa){
+        			if(Character.getNumericValue(strNumB.charAt(i+1)) == sa){
+        				position.append(i);
+        			}
+        		}
+        		
+        	}
+    		if(Integer.parseInt(position.toString()) > 0){
+    			return Integer.parseInt(position.toString());
+    		}
+    	return -1;
+	}
+	public static void main(String are[]){
+    	
+    	//int a = 53;
+    	//int b = 1953786;
+    	int a = 78;
+    	int b = 195378678;
+	Exam e = new Exam();
+    	int p = e.solution(a, b);
+    	System.out.println("p:"+p);
+	
+    	}
+     }
+     
+     
